@@ -6,7 +6,7 @@ const buttonClicked = () => {
     searchField.value = '';
 
     // load data
-    const url = `http://openlibrary.org/search.json?q=${searchText}`;
+    const url = `https://openlibrary.org/search.json?q=${searchText}`;
 
     fetch(url)
         .then(res => res.json())
@@ -17,6 +17,7 @@ const buttonClicked = () => {
         bookResult.textContent = '';
         const bookNumber = document.getElementById('total-result');
         bookNumber.textContent = '';
+        // total shown result
         const totalNumber = books.length;
 
         // show total number of result
@@ -38,22 +39,15 @@ const buttonClicked = () => {
         books.forEach(book => {
             const div = document.createElement('div');
 
-            // books image url
-            // const url = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
-            // fetch(url)
-            //     .then(res => res.json())
-            //     .then(data => console.log(data));
-
-
             div.classList.add('col');
             div.classList.add('border');
             div.classList.add('border-2');
             div.classList.add('rounded');
             div.innerHTML = `
-            <h3>Book Name: ${book.title}</h3>
-            <h4>Author Name: ${book.author_name}</h4>
-            <h5>First Published: ${book.first_publish_year}</h5>
-            <h5>Publisher: ${book.publisher}</h5>
+            <h3><span class="text-info">Book Name:</span> ${book.title}</h3>
+            <h4><span class="text-info">Author Name:</span> ${book.author_name}</h4>
+            <h5><span class="text-info">First Published:</span> ${book.first_publish_year}</h5>
+            <h5><span class="text-info">Publisher:</span> ${book.publisher}</h5>
             `;
 
             bookResult.appendChild(div);
