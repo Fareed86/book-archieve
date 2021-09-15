@@ -44,6 +44,7 @@ const buttonClicked = () => {
             div.classList.add('border-2');
             div.classList.add('rounded');
             div.innerHTML = `
+            <img class="mx-auto" src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" alt="">
             <h3><span class="text-info">Book Name:</span> ${book.title}</h3>
             <h4><span class="text-info">Author Name:</span> ${book.author_name}</h4>
             <h5><span class="text-info">First Published:</span> ${book.first_publish_year}</h5>
